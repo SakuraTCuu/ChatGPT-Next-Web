@@ -48,8 +48,10 @@ export const DEFAULT_CONFIG = {
   models: DEFAULT_MODELS as any as LLMModel[],
 
   modelConfig: {
-    model: "gpt-3.5-turbo" as ModelType,
-    providerName: "OpenAI" as ServiceProvider,
+    // model: "gpt-3.5-turbo" as ModelType,
+    // providerName: "OpenAI" as ServiceProvider,
+    model: "deepseek-chat" as ModelType,
+    providerName: "Deepseek" as ServiceProvider,
     temperature: 0.5,
     top_p: 1,
     max_tokens: 4000,

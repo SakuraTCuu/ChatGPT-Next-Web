@@ -123,7 +123,6 @@ export async function requestOpenai(req: NextRequest) {
       fetchOptions.body = clonedBody;
 
       const jsonBody = JSON.parse(clonedBody) as { model?: string };
-
       // not undefined and is false
       if (
         isModelAvailableInServer(

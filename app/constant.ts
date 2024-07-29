@@ -11,7 +11,9 @@ export const RUNTIME_CONFIG_DOM = "danger-runtime-config";
 export const STABILITY_BASE_URL = "https://api.stability.ai";
 
 export const DEFAULT_API_HOST = "https://api.nextchat.dev";
-export const OPENAI_BASE_URL = "https://api.openai.com";
+// export const OPENAI_BASE_URL = "https://api.openai.com";
+export const OPENAI_BASE_URL = "https://api.deepseek.com";
+
 export const ANTHROPIC_BASE_URL = "https://api.anthropic.com";
 
 export const GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/";
@@ -101,6 +103,7 @@ export enum ServiceProvider {
   ByteDance = "ByteDance",
   Alibaba = "Alibaba",
   Stability = "Stability",
+  Deepseek = "DeepSeek",
 }
 
 // Google API safety settings, see https://ai.google.dev/gemini-api/docs/safety-settings
@@ -120,6 +123,7 @@ export enum ModelProvider {
   Ernie = "Ernie",
   Doubao = "Doubao",
   Qwen = "Qwen",
+  DeepSeek = "DeepSeek",
 }
 
 export const Stability = {
@@ -220,6 +224,8 @@ export const KnowledgeCutOffDate: Record<string, string> = {
   "gemini-pro-vision": "2023-12",
 };
 
+const deepseekModels = ["deepseek-chat", "deepseek-coder"];
+
 const openaiModels = [
   "gpt-3.5-turbo",
   "gpt-3.5-turbo-1106",
@@ -290,6 +296,15 @@ const alibabaModes = [
 ];
 
 export const DEFAULT_MODELS = [
+  ...deepseekModels.map((name) => ({
+    name,
+    available: true,
+    provider: {
+      id: "deepseek", // deepseek
+      providerName: "Deepseek",
+      providerType: "deepseek",
+    },
+  })),
   ...openaiModels.map((name) => ({
     name,
     available: true,
